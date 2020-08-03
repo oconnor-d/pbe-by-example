@@ -4,5 +4,36 @@ body {
 }
 
 .code-block {
-  background-color: rgb(202, 213, 219);
+  background-color: #f5f5f9;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+}
+
+.examples {
+  font-size: .9rem;
+  font-weight: bold;
+}
+
+.success {
+  color: green;
+  font-size: .9rem;
+}
+
+.error {
+  color: red;
+  font-size: .9rem;
+}
+
+.normal {
+  font-size: .9rem;
+}
+
+.info {
+  color: gray;
+  font-size: .8rem;
+}
+
+.indented {
+  text-indent: 3em;
 }
