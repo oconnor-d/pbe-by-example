@@ -12,7 +12,28 @@
     <title>PBE | By Example</title>
   </head>
   <body>
-    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <a class="navbar-brand" href="#">PBE, By Example</a>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="./references.html">References</a>
+        </div>
+      </div>
+    </nav>
+    <article class="container py-3">
+      <div id="reviewer-notes" style="color: red;">
+        <h4>Note to Reviewers</h4>
+        <ol>
+          <li>The website design is still WIP</li>
+          <li>The 'Practice Problems' section is WIP</li>
+          <li>
+            I'm planning on shifting the text content left a little, and adding a running example section to the right
+            which correlates with the advice being given in each section
+          </li>
+          <li>The 'References' page is still WIP</li>
+        </ol>
+      </div>
       <div id="introduction">
         <h1>Programming by Example, By Example</h1>
         <p>
@@ -27,11 +48,33 @@
         <h3>Decompose the problem</h3>
         <p>WIP</p>
         <h3>Disambiguate your examples</h3>
-        <p>WIP</p>
+        <p>
+          One of the biggest challenges of PBE is that examples are inherently ambiguous. There can be several different
+          programs that conform to the given examples, but would behave differently on other inputs.
+        </p>
         <h3>Provide enough examples</h3>
-        <p>WIP</p>
+        <p>
+          PBE works by generating a program that works on the provided examples, but they don't always generate programs
+          that work as expected for all input. Sometimes, when providing too few examples, you end up with a program which 
+          does something you don't intend. The more examples you provide, the more likely it is that the PBE results would 
+          be what you expect.
+        </p>
+        <p>
+          When thinking of additional examples, you want to keep in mind <b>disambiguation</b>, and provide examples that:
+          <ul>
+            <li>Conform to the expected behavior</li>
+            <li>Further define your intentions</li>
+            <li>Exemplify behavior on edge-case inputs</li>
+          </ul>
+        </p>
         <h3>Refactor and retry</h3>
-        <p>WIP</p>
+        <p>
+          Even if you provide a good set of initial examples, there's no garauntee the PBE system will get it
+          right on the first go. Often times, getting the desired result from PBE requires some back and forth.
+          
+          When the PBE system isn't doing what you intend, its best to take note of your provided examples, and make sure
+          they conform with the aforementioned guidelines.
+        </p>
       </div>
   
       <div id="practice-problems" class="border-top">
@@ -54,7 +97,7 @@
           <li>Extract the domain from each input email address.</li>
         </ol>
       </div>
-    </div>
+    </article>
 
     <div id="footer">
 

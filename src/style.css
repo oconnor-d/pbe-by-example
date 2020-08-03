@@ -2,3 +2,7 @@
 body {
   background-color: #FFFAFA;
 }
+
+.code-block {
+  background-color: rgb(202, 213, 219);
+}
