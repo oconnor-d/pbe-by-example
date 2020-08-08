@@ -1,6 +1,17 @@
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color: #FFFAFA;
+}
+
+.section {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 
 .example-block {
@@ -37,4 +48,24 @@ body {
 
 .indented {
   text-indent: 3em;
+}
+
+/* FOOTER */
+
+main {
+  margin-bottom: 49px;
+}
+
+article {
+  margin-bottom: 49px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  line-height: 50px; /* Vertically center the text there */
+  background-color: #f5f5f5;
 }

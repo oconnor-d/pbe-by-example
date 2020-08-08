@@ -17,15 +17,16 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="./problems.html">Problems</a>
           <a class="nav-item nav-link" href="./references.html">References</a>
         </div>
       </div>
     </nav>
-    <article class="container py-3">
-      <div id="introduction">
+    <article class="container">
+      <div class="section">
         <h1 class="mb-0">Programming by Example, By Example</h1>
         <h6 class="text-muted">Danny O'Connor | August, 2020</h6>
         <p class="indented">
@@ -51,7 +52,7 @@
         </p>
       </div>
   
-      <div id="example-techniques" class="border-top">
+      <div class="section">
         <h2>Coming Up with Effective Examples</h2>
         <p class="indented">
           PBE can only be as effective as the provided examples allow it to be. Examples are extremely friendly towards the user, as all people are able to come
@@ -226,31 +227,20 @@
         </div>
       </div>
   
-      <div id="practice-problems" class="container border-top mt-3">
+      <div class="section">
         <h2>Practice Problems</h2>
         <p>
-          What better way to learn Programming-By-Example, then by example! 
+          What better way to learn Programming-By-Example, then by example! Test out what you've learned and play around with
+          some example-creation with some <a href="./problems.html">practice problems</a>.
         </p>
-        <p>
-          Below are some practice problems you
-          can use to test out your example-creating techniques. You can input your examples for each task and get
-          feedback about the strengths and weaknesses of them. If you need some guidance, you can click 'show hint'
-          to reveal a hint for creating a good example for the task, and 'show example' to reveal an example for that
-          hint.
-        </p>
-
-        <ol>
-          <li>Increment each input number by <i>1</i>.</li>
-          <li>Append the letters <i>abc</i> to the end of each input word.</li>
-          <li>Capitalize the first word of each input sentence, if its not already capitalized.</li>
-          <li>Extract the domain from each input email address.</li>
-        </ol>
       </div>
     </article>
 
-    <div id="footer">
-
-    </div>
+    <footer class="footer">
+      <div class="container">
+        Any questions? Contact me at <i>oconnor.d@northeastern.edu</i> or raise an issue on <a href="https://github.com/oconnor-d/pbe-by-example/issues">github</a>!
+      </div>
+    </footer>
 
     <!-- JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
