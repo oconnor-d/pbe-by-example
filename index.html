@@ -57,21 +57,30 @@
           a widely held skill, I created a short guide you can refer to when coming up with examples of your own.
         </p>
         <div class="container">
-          <div class="container">
+          <div class="container pt-1">
             <div class="row">
               <h3>1. Decompose the problem</h3>
             </div>
             <div class="row">
-              <div class="col-8">
+              <div class="col-sm-8">
                 <p>
                   Some problems are still too big to be solved by modern PBE systems in one go. Often, it is necessary to decompose
                   these problems into smaller sub-tasks that PBE can be used to solve.
                 </p>
                 <p>
                   Depending on which PBE system your using, you should be able to combine these PBE-backed sub-tasks to solve your original problem.
+                  If your using 
+                  <a target="_blank" href="https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7">
+                    Excel FlashFill
+                  </a>
+                  , for example, you can store each intermediate result in its own column which will be the input for the next step!  
+                </p>
+                <p>
+                  Besides being helpful for the PBE system, decomposing your problem can be helpful for your understanding of the problem, and therefore
+                  your ability to come up with worthwile examples.
                 </p>
               </div>
-              <div class="col-4">
+              <div class="col-sm-4">
                 <div class="example-block">
                   <div class="examples">Provided Steps</div>
                   <br/>
@@ -86,12 +95,12 @@
               </div>
             </div>
           </div>
-          <div class="container">
+          <div class="container pt-1">
             <div class="row">
               <h3>2. Disambiguate your examples</h3>
             </div>
             <div class="row">
-              <div class="col-8">
+              <div class="col-sm-8">
                 <p>
                   One of the biggest challenges of PBE is that examples are an ambiguous way of specifying a program.
                   There are many possible programs all with different behaviors which could satisfy any given set of examples.
@@ -105,7 +114,7 @@
                   of the finer details of the task at hand.It is also useful to think of any edge-cases you might want to encounter, and include those as examples.
                 </p>
               </div>
-              <div class="col-4">
+              <div class="col-sm-4">
                 <div class="example-block">
                   <div class="examples">Lowercase any uppercase letters in the input</div>
                   <br/>
@@ -123,12 +132,12 @@
               </div>
             </div>
           </div>
-          <div class="container">
+          <div class="container pt-1">
             <div class="row">
               <h3>3. Provide enough examples</h3>
             </div>
             <div class="row">
-              <div class="col-8">
+              <div class="col-sm-8">
                 <p>
                   PBE works by generating a program that works on the provided examples, but they don't always generate programs
                   that work as expected for all input. Sometimes, when providing too few examples, you end up with a program which 
@@ -147,7 +156,7 @@
                   </ul>
                 </p>
               </div>
-              <div class="col-4">
+              <div class="col-sm-4">
                 <div class="example-block">
                   <div class="examples">Increment each input number by 1</div>
                   <br/>
@@ -164,12 +173,12 @@
               </div>
             </div>
           </div>
-          <div class="container">
+          <div class="container pt-1">
             <div class="row">
               <h3>4. Validate your examples</h3>
             </div>
             <div class="row">
-              <div class="col-8">
+              <div class="col-sm-8">
                 <p>
                   This may seem self-evident, but it is very important that your examples don't have any mistakes in them. Providing a wrong
                   example can lead PBE down the wrong path, resulting in a program which satisfies the erroneous examples without
@@ -179,7 +188,7 @@
                   If your PBE system isn't working as expected, double checking that your examples don't contain any mistakes is always a good first step.
                 </p>
               </div>
-              <div class="col-4">
+              <div class="col-sm-4">
                 <div class="example-block">
                   <div class="examples">Extract 'Relationship' from 'Relationship-in-Law'</div>
                   <br/>
@@ -194,12 +203,12 @@
               </div>
             </div>
           </div>
-          <div class="container">
+          <div class="container pt-1">
             <div class="row">
               <h3>5. Refactor and retry</h3>
             </div>
             <div class="row">
-              <div class="col-8">
+              <div class="col-sm-8">
                 <p>
                   Even if you provide a good set of initial examples, there's no garauntee the PBE system will get it
                   right on the first go. Often times, getting the desired result from PBE requires some back and forth.
@@ -214,7 +223,7 @@
         </div>
       </div>
   
-      <div id="practice-problems" class="border-top mt-3">
+      <div id="practice-problems" class="container border-top mt-3">
         <h2>Practice Problems</h2>
         <p>
           What better way to learn Programming-By-Example, then by example! 
