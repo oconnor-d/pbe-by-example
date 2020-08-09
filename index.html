@@ -56,26 +56,39 @@
       <div class="section" id="introduction">
         <h1 class="mb-0">Programming By Example, By Example</h1>
         <h6 class="text-muted">Danny O'Connor | August, 2020</h6>
-        <p class="indented">
-          Programming-by-example, commonly referred to as PBE, is featured in several popular pieces of software.
-          As the name suggests, programming-by-example allows users to generate programs by providing nothing more than a few example inputs and outputs.
-          PBE can be used to automate repetitive tasks, such as
-          <a target="_blank" href="https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7">
-            populating a new column in Microsoft Excel based off an existing column.
-          </a>
-          In order to use PBE effectively, you must be able to come up with a full set of descriptive, unambiguous examples which
-          exemplify the task you want to fulfill. Often times, end-users of PBE systems aren't fully aware of what the software is looking
-          for in terms of the given examples - no matter what PBE system you may be using, this site will give you the necessary tools to become an effective PBE user!
-        </p>
+        <div class="row">
+          <div class="col-sm-8">
+            <p class="indented">
+              Programming-by-example, commonly referred to as PBE, is featured in several popular pieces of software.
+              As the name suggests, programming-by-example allows users to generate programs by providing nothing more than a few example inputs and outputs.
+              PBE can be used to automate repetitive tasks, such as
+              <a target="_blank" href="https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7">
+                populating a new column in Microsoft Excel based off an existing column.
+              </a>
+              Learning how to use your PBE tool effectively can increase your productivity, and save time on repitious tasks, so its a worthwhile endeavor
+              to understand how they work. Instead of writing code in a programming language, you program your desired program via <b>examples</b>! PBE works
+              by generating programs that satisfy the provided examples <i>at least</i>, and hopefully solve all desired use cases.
+              In order to use PBE effectively, you must be able to come up with a full set of descriptive, unambiguous examples which
+              exemplify the task you want to fulfill. Often times, end-users of PBE systems aren't fully aware of what the software is looking
+              for in terms of the given examples - no matter what PBE system you may be using, this site will give you the necessary tools to become an effective PBE user!
+            </p>
+          </div>
+          <div class="col">
+            <h5>Excel Flash Fill</h5>
+            <img class="my-1 border border-dark" src="./src/flash_fill.gif" alt="Excel Flash-Fill in action">
+            <div class="info">Excel Flash Fill generating full names from the three name columns, using <b>Mynda K Treacy</b> as an example output</div>
+          </div>
+        </div>
       </div>
   
       <div class="section" id="effective-examples">
         <h2>Coming Up with Effective Examples</h2>
         <p class="indented">
-          PBE can only be as effective as the provided examples allow it to be. Examples are extremely friendly towards the user, as all people are able to come
-          up with examples of what they want to do, but not all people have the means to implement the solution themselves. However, examples are inherently ambiguous,
-          and often do not encompass the entire problem. Since generating effective examples is so important to PBE, and coming up with examples well-suited for PBE isn't
-          a widely held skill, I created a short guide you can refer to when coming up with examples of your own.
+          PBE can only be as effective as the provided examples allow it to be. Examples are extremely friendly towards the user, since most are able
+          to come up with examples for their tasks. More people are able to come up with examples for their problem than are able to program 
+          a solution by hand, which is great for the everyday user! However, examples are inherently ambiguous, and often do not encompass the entire problem. 
+          Since generating effective examples is so important to PBE, and coming up with well-suited PBE examples isn't a widely held skill, it's important
+          to put some thought into your examples. Here's a short guide you can refer to when coming up with examples of your own.
         </p>
         <div class="container">
           <div class="container pt-1" id="decomposition">
@@ -92,7 +105,7 @@
                   Depending on which PBE system your using, you should be able to combine these PBE-backed sub-tasks to solve your original problem.
                   If your using 
                   <a target="_blank" href="https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7">
-                    Excel FlashFill
+                    Excel Flash Fill
                   </a>
                   , for example, you can store each intermediate result in its own column which will be the input for the next step!  
                 </p>
@@ -250,8 +263,9 @@
                   right on the first go. Often times, getting the desired result from PBE requires some back and forth.
                 </p>
                 <p>
-                  When the PBE system isn't doing what you intend, its best to take note of your provided examples, and see if they
-                  follow along with this guide.
+                  When the PBE system isn't doing what you intend, go through your examples one more time to see what
+                  may be missing. Refer back to the guide, and see if you can further <b>decompose</b> your problem, or <b>disambiguate</b> and <b>validate</b>
+                  your examples.
                 </p>
               </div>
             </div>
@@ -262,8 +276,8 @@
       <div class="section" id="problems">
         <h2>Practice Problems</h2>
         <p>
-          What better way to learn Programming-By-Example, then by example!<br/>
-          Test out what you've learned and play around with some example-creation with some <a href="./problems.html">practice problems</a>.
+          What better way to learn Programming-By-Example, then by example!
+          Test out what you've learned with some <a href="./problems.html">practice problems</a>.
         </p>
       </div>
     </article>
