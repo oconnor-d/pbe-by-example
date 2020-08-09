@@ -40,20 +40,20 @@
     <div id="table-of-contents">
       <div class="example-block">
         <h4 class="border-bottom pb-1">Table of Contents</h4>
-        <div class="toc-section">
+        <div class="toc-section" data-target="#introduction">
           <a>Programming by Example, by Example</a>
         </div>
-        <div class="toc-section"><a>Effective examples</a></div>
-        <div class="toc-sub-section"><a>Decomposition</a></div>
-        <div class="toc-sub-section"><a>Disambiguation</a></div>
-        <div class="toc-sub-section"><a>Example Count</a></div>
-        <div class="toc-sub-section"><a>Validation</a></div>
-        <div class="toc-sub-section"><a>Refactoring</a></div>
-        <div class="toc-section"><a>Practice Problems</a></div>
+        <div class="toc-section" data-target="#effective-examples"><a>Effective examples</a></div>
+        <div class="toc-sub-section" data-target="#decomposition"><a>Decomposition</a></div>
+        <div class="toc-sub-section" data-target="#disambiguation"><a>Disambiguation</a></div>
+        <div class="toc-sub-section" data-target="#example-count"><a>Example Count</a></div>
+        <div class="toc-sub-section" data-target="#validation"><a>Validation</a></div>
+        <div class="toc-sub-section" data-target="#refactoring"><a>Refactoring</a></div>
+        <div class="toc-section" data-target="#problems"><a>Practice Problems</a></div>
       </div>
     </div>
     <article class="container">
-      <div class="section">
+      <div class="section" id="introduction">
         <h1 class="mb-0">Programming By Example, By Example</h1>
         <h6 class="text-muted">Danny O'Connor | August, 2020</h6>
         <p class="indented">
@@ -69,7 +69,7 @@
         </p>
       </div>
   
-      <div class="section">
+      <div class="section" id="effective-examples">
         <h2>Coming Up with Effective Examples</h2>
         <p class="indented">
           PBE can only be as effective as the provided examples allow it to be. Examples are extremely friendly towards the user, as all people are able to come
@@ -78,7 +78,7 @@
           a widely held skill, I created a short guide you can refer to when coming up with examples of your own.
         </p>
         <div class="container">
-          <div class="container pt-1">
+          <div class="container pt-1" id="decomposition">
             <div class="row">
               <h3>1. Decompose the problem</h3>
             </div>
@@ -117,7 +117,7 @@
               </div>
             </div>
           </div>
-          <div class="container pt-1">
+          <div class="container pt-1" id="disambiguation">
             <div class="row">
               <h3>2. Disambiguate your examples</h3>
             </div>
@@ -154,7 +154,7 @@
               </div>
             </div>
           </div>
-          <div class="container pt-1">
+          <div class="container pt-1" id="example-count">
             <div class="row">
               <h3>3. Provide enough examples</h3>
             </div>
@@ -184,18 +184,32 @@
                   <br/>
                   <div class="normal">0 -> 1</div>
                   <div class="normal">1 -> 2</div>
-                  <div class="normal">2 -> 3</div>
-                  <div class="normal">5 -> 6</div>
-                  <div class="info">Excludes common cases, such as negative numbers</div>
+                  <div class="row">
+                    <div class="col-auto">
+                      <div class="error">2 -> 3</div>
+                      <div class="error">4 -> 5</div>
+                    </div>
+                    <div class="col pl-0">
+                      <div class="info">These don't provide any additional information about the task</div>
+                    </div>
+                  </div>
                   <br/>
-                  <div class="success">-1 -> 0</div>
-                  <div class="success">-40 -> -39</div>
-                  <div class="info">Adding some more examples includes those common cases</div>
+                  <div class="row">
+                    <div class="col-auto">
+                      <div class="success">-1 -> 0</div>
+                      <div class="success">-40 -> -39</div>
+                      <div class="success">9 -> 10</div>
+
+                    </div>
+                    <div class="col pl-0">
+                      <div class="info">Includes common cases like negative numbers and numbers with more than two digits</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="container pt-1">
+          <div class="container pt-1" id="validation">
             <div class="row">
               <h3>4. Validate your examples</h3>
             </div>
@@ -212,7 +226,7 @@
               </div>
               <div class="col-sm-4">
                 <div class="example-block">
-                  <div class="examples">Extract 'Relationship' from 'Relationship-in-Law'</div>
+                  <div class="examples">Extract the first word from 'X-in-Law'</div>
                   <br/>
                   <div class="normal">Brother-in-Law -> Brother</div>
                   <div class="error">Sister-in-Law -> Sistre</div>
@@ -225,7 +239,7 @@
               </div>
             </div>
           </div>
-          <div class="container pt-1">
+          <div class="container pt-1" id="refactoring">
             <div class="row">
               <h3>5. Refactor and retry</h3>
             </div>
@@ -245,7 +259,7 @@
         </div>
       </div>
   
-      <div class="section">
+      <div class="section" id="problems">
         <h2>Practice Problems</h2>
         <p>
           What better way to learn Programming-By-Example, then by example!<br/>
@@ -262,8 +276,9 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="./src/table-of-contents.js"></script>
   </body>
 </html>
