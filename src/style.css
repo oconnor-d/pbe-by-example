@@ -50,6 +50,52 @@ body {
   text-indent: 3em;
 }
 
+/* ABOUT ME / TABLE OF CONTENTS */
+
+@media (max-width: 400px) {
+  /* hide it on small screens */
+  #about-me { display: none !important; }
+  #table-of-contents { display: none; }
+  .toc-section { display: none; }
+  .toc-sub-section { display: none; }
+}
+
+#about-me {
+  position: absolute;
+  top: 5rem;
+  right: 2.5rem;
+  width: 15%;
+  font-size: .9rem;
+}
+
+#table-of-contents {
+  position: fixed;
+  top: 5rem;
+  left: 2.5rem;
+  font-size: .9rem;
+  width: 17%;
+  line-height: 1.6rem;
+}
+
+.toc-section {
+  font-weight: 500;
+}
+
+.toc-section:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.toc-sub-section {
+  font-weight: 500;
+  text-indent: .75rem;
+}
+
+.toc-sub-section:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
 /* FOOTER */
 
 main {
