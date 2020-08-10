@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./src/bootstrap.min.css">
-    <link rel="stylesheet" href="./src/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>PBE | By Example</title>
   </head>
@@ -20,267 +20,273 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="./problems.html">Problems</a>
-          <a class="nav-item nav-link" href="./references.html">References</a>
+          <a class="nav-item nav-link" href="problems.html">Problems</a>
+          <a class="nav-item nav-link" href="references.html">References</a>
         </div>
       </div>
     </nav>
-    <div id="about-me">
-      <div class="example-block">
-        <h4 class="border-bottom pb-1">About Me</h4>
-        <p>
-          I'm a fifth year Computer Science student at Northeastern University!
-        </p>
-        <p>
-          I work at a company whose product has PBE capabilities, which inspired me to learn more about
-          the field and led me to the research concerning the usability issues PBE faces
-        </p>
-      </div>
-    </div>
-    <div id="table-of-contents">
-      <div class="example-block">
-        <h4 class="border-bottom pb-1">Table of Contents</h4>
-        <div class="toc-section at-section" data-target="#introduction">
-          <a>Programming by Example, by Example</a>
+    <div class="row">
+        <div class="col-sm-2">
+          <div id="table-of-contents" class="ml-3">
+            <div class="example-block">
+              <h4 class="border-bottom pb-1">Table of Contents</h4>
+              <div class="toc-section at-section" data-target="#introduction">
+                <a>PBE, by Example</a>
+              </div>
+              <div class="toc-section" data-target="#effective-examples"><a>Effective examples</a></div>
+              <div class="toc-sub-section" data-target="#decomposition"><a>Decomposition</a></div>
+              <div class="toc-sub-section" data-target="#disambiguation"><a>Disambiguation</a></div>
+              <div class="toc-sub-section" data-target="#example-count"><a>Example Count</a></div>
+              <div class="toc-sub-section" data-target="#validation"><a>Validation</a></div>
+              <div class="toc-sub-section" data-target="#refactoring"><a>Refactoring</a></div>
+              <div class="toc-section" data-target="#problems"><a>Practice Problems</a></div>
+            </div>
+          </div>
         </div>
-        <div class="toc-section" data-target="#effective-examples"><a>Effective examples</a></div>
-        <div class="toc-sub-section" data-target="#decomposition"><a>Decomposition</a></div>
-        <div class="toc-sub-section" data-target="#disambiguation"><a>Disambiguation</a></div>
-        <div class="toc-sub-section" data-target="#example-count"><a>Example Count</a></div>
-        <div class="toc-sub-section" data-target="#validation"><a>Validation</a></div>
-        <div class="toc-sub-section" data-target="#refactoring"><a>Refactoring</a></div>
-        <div class="toc-section" data-target="#problems"><a>Practice Problems</a></div>
-      </div>
-    </div>
-    <article class="container">
-      <div class="section" id="introduction">
-        <h1 class="mb-0">Programming By Example, By Example</h1>
-        <h6 class="text-muted">Danny O'Connor | August, 2020</h6>
-        <div class="row">
-          <div class="col-sm-8">
+        <article class="col-sm-8 container">
+          <div class="section" id="introduction">
+            <h1 class="mb-0">Programming By Example, By Example</h1>
+            <h6 class="text-muted">Danny O'Connor | August, 2020</h6>
+            <div class="row">
+              <div class="col-sm-8">
+                <p class="indented">
+                  Programming-by-example, commonly referred to as PBE, is featured in several popular pieces of software.
+                  As the name suggests, programming-by-example allows users to generate programs by providing nothing more than a few example inputs and outputs.
+                  PBE can be used to automate repetitive tasks, such as
+                  <a target="_blank" href="https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7">
+                    populating a new column in Microsoft Excel based off an existing column.
+                  </a>
+                  Learning how to use your PBE tool effectively can increase your productivity, and save time on repitious tasks, so its a worthwhile endeavor
+                  to understand how they work. Instead of writing code in a programming language, you program your desired program via <b>examples</b>! PBE works
+                  by generating programs that satisfy the provided examples <i>at least</i>, and hopefully solve all desired use cases.
+                  In order to use PBE effectively, you must be able to come up with a full set of descriptive, unambiguous examples which
+                  exemplify the task you want to fulfill. Often times, end-users of PBE systems aren't fully aware of what the software is looking
+                  for in terms of the given examples - no matter what PBE system you may be using, this site will give you the necessary tools to become an effective PBE user!
+                </p>
+              </div>
+              <div class="col">
+                <h5>Excel Flash Fill</h5>
+                <img class="my-1 border border-dark" src="./img/flash_fill.gif" alt="Excel Flash-Fill in action">
+                <div class="info">Excel Flash Fill generating full names from the three name columns, using <b>Mynda K Treacy</b> as an example output</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section" id="effective-examples">
+            <h2>Coming Up with Effective Examples</h2>
             <p class="indented">
-              Programming-by-example, commonly referred to as PBE, is featured in several popular pieces of software.
-              As the name suggests, programming-by-example allows users to generate programs by providing nothing more than a few example inputs and outputs.
-              PBE can be used to automate repetitive tasks, such as
-              <a target="_blank" href="https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7">
-                populating a new column in Microsoft Excel based off an existing column.
-              </a>
-              Learning how to use your PBE tool effectively can increase your productivity, and save time on repitious tasks, so its a worthwhile endeavor
-              to understand how they work. Instead of writing code in a programming language, you program your desired program via <b>examples</b>! PBE works
-              by generating programs that satisfy the provided examples <i>at least</i>, and hopefully solve all desired use cases.
-              In order to use PBE effectively, you must be able to come up with a full set of descriptive, unambiguous examples which
-              exemplify the task you want to fulfill. Often times, end-users of PBE systems aren't fully aware of what the software is looking
-              for in terms of the given examples - no matter what PBE system you may be using, this site will give you the necessary tools to become an effective PBE user!
+              PBE can only be as effective as the provided examples allow it to be. Examples are extremely friendly towards the user, since most are able
+              to come up with examples for their tasks. More people are able to come up with examples for their problem than are able to program
+              a solution by hand, which is great for the everyday user! However, examples are inherently ambiguous, and often do not encompass the entire problem.
+              Since generating effective examples is so important to PBE, and coming up with well-suited PBE examples isn't a widely held skill, it's important
+              to put some thought into your examples. Here's a short guide you can refer to when coming up with examples of your own.
+            </p>
+            <div class="container">
+              <div class="container pt-1" id="decomposition">
+                <div class="row">
+                  <h3>1. Decompose the problem</h3>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <p>
+                      Some problems are still too big to be solved by modern PBE systems in one go. Often, it is necessary to decompose
+                      these problems into smaller sub-tasks that PBE can be used to solve.
+                    </p>
+                    <p>
+                      Depending on which PBE system your using, you should be able to combine these PBE-backed sub-tasks to solve your original problem.
+                      If your using
+                      <a target="_blank" href="https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7">
+                        Excel Flash Fill
+                      </a>
+                      , for example, you can store each intermediate result in its own column which will be the input for the next step!
+                    </p>
+                    <p>
+                      Besides being helpful for the PBE system, decomposing your problem can be helpful for your understanding of the problem, and therefore
+                      your ability to come up with worthwile examples. It can be difficult to come up with examples for sufficiently complex tasks,
+                      but coming up with examples for each individual step is usually much easier!
+                    </p>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="example-block">
+                      <div class="examples">Provided Steps</div>
+                      <br/>
+                      <div class="error">1. Add the first two inputs, divide that by the third input, and raise that to the power of the fourth input</div>
+                      <div class="info">There is no garauntee PBE would be able to figure out such an involved task</div>
+                      <br/>
+                      <div class="success">1. Add the two inputs</div>
+                      <div class="success">2. Divide the two inputs</div>
+                      <div class="success">3. Raise the first input to the power of the second input</div>
+                      <div class="info">Each subtask can be completed by PBE, and can be chained together to solve the original problem</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container pt-1" id="disambiguation">
+                <div class="row">
+                  <h3>2. Disambiguate your examples</h3>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <p>
+                      One of the biggest challenges of PBE is that examples are an ambiguous way of specifying a program.
+                      There are many possible programs all with different behaviors which could satisfy any given set of examples.
+                    </p>
+                    <p>
+                      It's best to think of your examples as the full description of the program you wish to generate. In order to fully
+                      describe your program, you want to think of examples which encompass any and all specifications you want the program to fulfill.
+                    </p>
+                    <p>
+                      If all your examples seem exceedingly similar to each other, that is often a sign that they are too ambiguous, and might miss some
+                      of the finer details of the task at hand.It is also useful to think of any edge-cases you might want to encounter, and include those as examples.
+                    </p>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="example-block">
+                      <div class="examples">Lowercase any uppercase letters in the input</div>
+                      <br/>
+                      <div class="normal">Test-> test</div>
+                      <div class="normal">LoREm ipsum -> lorem ipsum</div>
+                      <div class="normal">ABC 123 -> abc 123</div>
+                      <div class="info">
+                        These examples apply to <b>Lowercases any uppercase letters in the first word of an input</b> as well,
+                        which is unwanted behavior
+                      </div>
+                      <br/>
+                      <div class="success">TeST SENtENCe -> test sentence</div>
+                      <div class="info">Adding an additional example can counteract this misunderstanding</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container pt-1" id="example-count">
+                <div class="row">
+                  <h3>3. Provide enough examples</h3>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <p>
+                      PBE works by generating a program that works on the provided examples, but they don't always generate programs
+                      that work as expected for all input. Sometimes, when providing too few examples, you end up with a program which
+                      does something you don't intend.
+                    </p>
+                    <p>
+                      The number of examples you should provide depends on the complexity of the task, and the specific PBE system you may be using.
+                      Around 5 is a good baseline to aim for, but you may need to add more until you get a working program.
+                    </p>
+                    <p>
+                      When thinking of additional examples, you want to keep in mind <b>disambiguation</b>, and provide examples that:
+                    <ul>
+                      <li>Conform to the expected behavior</li>
+                      <li>Further define your intentions</li>
+                      <li>Exemplify behavior on edge-case inputs</li>
+                    </ul>
+                    </p>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="example-block">
+                      <div class="examples">Increment each input number by 1</div>
+                      <br/>
+                      <div class="normal">0 -> 1</div>
+                      <div class="normal">1 -> 2</div>
+                      <div class="row">
+                        <div class="col-auto">
+                          <div class="error">2 -> 3</div>
+                          <div class="error">4 -> 5</div>
+                        </div>
+                        <div class="col pl-0">
+                          <div class="info">These don't provide any additional information about the task</div>
+                        </div>
+                      </div>
+                      <br/>
+                      <div class="row">
+                        <div class="col-auto">
+                          <div class="success">-1 -> 0</div>
+                          <div class="success">-40 -> -39</div>
+                          <div class="success">9 -> 10</div>
+
+                        </div>
+                        <div class="col pl-0">
+                          <div class="info">Includes common cases like negative numbers and numbers with more than two digits</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container pt-1" id="validation">
+                <div class="row">
+                  <h3>4. Validate your examples</h3>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <p>
+                      This may seem self-evident, but it is very important that your examples don't have any mistakes in them. Providing a wrong
+                      example can lead PBE down the wrong path, resulting in a program which satisfies the erroneous examples without
+                      achieving the task at hand.
+                    </p>
+                    <p>
+                      If your PBE system isn't working as expected, double checking that your examples don't contain any mistakes is always a good first step.
+                    </p>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="example-block">
+                      <div class="examples">Extract the first word from 'X-in-Law'</div>
+                      <br/>
+                      <div class="normal">Brother-in-Law -> Brother</div>
+                      <div class="error">Sister-in-Law -> Sistre</div>
+                      <div class="normal">Mother-in-Law -> Mother</div>
+                      <br/>
+                      <div class="info">
+                        Sister-in-Law -> Sistre contains a typo in the output.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container pt-1" id="refactoring">
+                <div class="row">
+                  <h3>5. Refactor and retry</h3>
+                </div>
+                <div class="row">
+                  <div class="col-sm-8">
+                    <p>
+                      Even if you provide a good set of initial examples, there's no garauntee the PBE system will get it
+                      right on the first go. Often times, getting the desired result from PBE requires some back and forth.
+                    </p>
+                    <p>
+                      When the PBE system isn't doing what you intend, go through your examples one more time to see what
+                      may be missing. Refer back to the guide, and see if you can further <b>decompose</b> your problem, or <b>disambiguate</b> and <b>validate</b>
+                      your examples.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section" id="problems">
+            <h2>Practice Problems</h2>
+            <p>
+              What better way to learn Programming-By-Example, then by example!
+              Test out what you've learned with some <a href="./problems.html">practice problems</a>.
             </p>
           </div>
-          <div class="col">
-            <h5>Excel Flash Fill</h5>
-            <img class="my-1 border border-dark" src="./src/flash_fill.gif" alt="Excel Flash-Fill in action">
-            <div class="info">Excel Flash Fill generating full names from the three name columns, using <b>Mynda K Treacy</b> as an example output</div>
-          </div>
-        </div>
-      </div>
-  
-      <div class="section" id="effective-examples">
-        <h2>Coming Up with Effective Examples</h2>
-        <p class="indented">
-          PBE can only be as effective as the provided examples allow it to be. Examples are extremely friendly towards the user, since most are able
-          to come up with examples for their tasks. More people are able to come up with examples for their problem than are able to program 
-          a solution by hand, which is great for the everyday user! However, examples are inherently ambiguous, and often do not encompass the entire problem. 
-          Since generating effective examples is so important to PBE, and coming up with well-suited PBE examples isn't a widely held skill, it's important
-          to put some thought into your examples. Here's a short guide you can refer to when coming up with examples of your own.
-        </p>
-        <div class="container">
-          <div class="container pt-1" id="decomposition">
-            <div class="row">
-              <h3>1. Decompose the problem</h3>
-            </div>
-            <div class="row">
-              <div class="col-sm-8">
-                <p>
-                  Some problems are still too big to be solved by modern PBE systems in one go. Often, it is necessary to decompose
-                  these problems into smaller sub-tasks that PBE can be used to solve.
-                </p>
-                <p>
-                  Depending on which PBE system your using, you should be able to combine these PBE-backed sub-tasks to solve your original problem.
-                  If your using 
-                  <a target="_blank" href="https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7">
-                    Excel Flash Fill
-                  </a>
-                  , for example, you can store each intermediate result in its own column which will be the input for the next step!  
-                </p>
-                <p>
-                  Besides being helpful for the PBE system, decomposing your problem can be helpful for your understanding of the problem, and therefore
-                  your ability to come up with worthwile examples. It can be difficult to come up with examples for sufficiently complex tasks,
-                  but coming up with examples for each individual step is usually much easier!
-                </p>
-              </div>
-              <div class="col-sm-4">
-                <div class="example-block">
-                  <div class="examples">Provided Steps</div>
-                  <br/>
-                  <div class="error">1. Add the first two inputs, divide that by the third input, and raise that to the power of the fourth input</div>
-                  <div class="info">There is no garauntee PBE would be able to figure out such an involved task</div>
-                  <br/>
-                  <div class="success">1. Add the two inputs</div>
-                  <div class="success">2. Divide the two inputs</div>
-                  <div class="success">3. Raise the first input to the power of the second input</div>
-                  <div class="info">Each subtask can be completed by PBE, and can be chained together to solve the original problem</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container pt-1" id="disambiguation">
-            <div class="row">
-              <h3>2. Disambiguate your examples</h3>
-            </div>
-            <div class="row">
-              <div class="col-sm-8">
-                <p>
-                  One of the biggest challenges of PBE is that examples are an ambiguous way of specifying a program.
-                  There are many possible programs all with different behaviors which could satisfy any given set of examples.
-                </p>
-                <p>
-                  It's best to think of your examples as the full description of the program you wish to generate. In order to fully
-                  describe your program, you want to think of examples which encompass any and all specifications you want the program to fulfill.
-                </p>
-                <p>
-                  If all your examples seem exceedingly similar to each other, that is often a sign that they are too ambiguous, and might miss some
-                  of the finer details of the task at hand.It is also useful to think of any edge-cases you might want to encounter, and include those as examples.
-                </p>
-              </div>
-              <div class="col-sm-4">
-                <div class="example-block">
-                  <div class="examples">Lowercase any uppercase letters in the input</div>
-                  <br/>
-                  <div class="normal">Test-> test</div>
-                  <div class="normal">LoREm ipsum -> lorem ipsum</div>
-                  <div class="normal">ABC 123 -> abc 123</div>
-                  <div class="info">
-                    These examples apply to <b>Lowercases any uppercase letters in the first word of an input</b> as well,
-                    which is unwanted behavior
-                  </div>
-                  <br/>
-                  <div class="success">TeST SENtENCe -> test sentence</div>
-                  <div class="info">Adding an additional example can counteract this misunderstanding</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container pt-1" id="example-count">
-            <div class="row">
-              <h3>3. Provide enough examples</h3>
-            </div>
-            <div class="row">
-              <div class="col-sm-8">
-                <p>
-                  PBE works by generating a program that works on the provided examples, but they don't always generate programs
-                  that work as expected for all input. Sometimes, when providing too few examples, you end up with a program which 
-                  does something you don't intend.
-                </p>
-                <p>
-                  The number of examples you should provide depends on the complexity of the task, and the specific PBE system you may be using.
-                  Around 5 is a good baseline to aim for, but you may need to add more until you get a working program.
-                </p>
-                <p>
-                  When thinking of additional examples, you want to keep in mind <b>disambiguation</b>, and provide examples that:
-                  <ul>
-                    <li>Conform to the expected behavior</li>
-                    <li>Further define your intentions</li>
-                    <li>Exemplify behavior on edge-case inputs</li>
-                  </ul>
-                </p>
-              </div>
-              <div class="col-sm-4">
-                <div class="example-block">
-                  <div class="examples">Increment each input number by 1</div>
-                  <br/>
-                  <div class="normal">0 -> 1</div>
-                  <div class="normal">1 -> 2</div>
-                  <div class="row">
-                    <div class="col-auto">
-                      <div class="error">2 -> 3</div>
-                      <div class="error">4 -> 5</div>
-                    </div>
-                    <div class="col pl-0">
-                      <div class="info">These don't provide any additional information about the task</div>
-                    </div>
-                  </div>
-                  <br/>
-                  <div class="row">
-                    <div class="col-auto">
-                      <div class="success">-1 -> 0</div>
-                      <div class="success">-40 -> -39</div>
-                      <div class="success">9 -> 10</div>
-
-                    </div>
-                    <div class="col pl-0">
-                      <div class="info">Includes common cases like negative numbers and numbers with more than two digits</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container pt-1" id="validation">
-            <div class="row">
-              <h3>4. Validate your examples</h3>
-            </div>
-            <div class="row">
-              <div class="col-sm-8">
-                <p>
-                  This may seem self-evident, but it is very important that your examples don't have any mistakes in them. Providing a wrong
-                  example can lead PBE down the wrong path, resulting in a program which satisfies the erroneous examples without
-                  achieving the task at hand.
-                </p>
-                <p>
-                  If your PBE system isn't working as expected, double checking that your examples don't contain any mistakes is always a good first step.
-                </p>
-              </div>
-              <div class="col-sm-4">
-                <div class="example-block">
-                  <div class="examples">Extract the first word from 'X-in-Law'</div>
-                  <br/>
-                  <div class="normal">Brother-in-Law -> Brother</div>
-                  <div class="error">Sister-in-Law -> Sistre</div>
-                  <div class="normal">Mother-in-Law -> Mother</div>
-                  <br/>
-                  <div class="info">
-                    Sister-in-Law -> Sistre contains a typo in the output.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container pt-1" id="refactoring">
-            <div class="row">
-              <h3>5. Refactor and retry</h3>
-            </div>
-            <div class="row">
-              <div class="col-sm-8">
-                <p>
-                  Even if you provide a good set of initial examples, there's no garauntee the PBE system will get it
-                  right on the first go. Often times, getting the desired result from PBE requires some back and forth.
-                </p>
-                <p>
-                  When the PBE system isn't doing what you intend, go through your examples one more time to see what
-                  may be missing. Refer back to the guide, and see if you can further <b>decompose</b> your problem, or <b>disambiguate</b> and <b>validate</b>
-                  your examples.
-                </p>
-              </div>
+        </article>
+        <div class="col-sm-2">
+          <div id="about-me" class="mr-3">
+            <div class="example-block">
+              <h4 class="border-bottom pb-1">About Me</h4>
+              <p>
+                I'm a fifth year Computer Science student at Northeastern University!
+              </p>
+              <p>
+                I work at a company whose product has PBE capabilities, which inspired me to learn more about
+                the field and led me to the research concerning the usability issues PBE faces
+              </p>
             </div>
           </div>
         </div>
       </div>
-  
-      <div class="section" id="problems">
-        <h2>Practice Problems</h2>
-        <p>
-          What better way to learn Programming-By-Example, then by example!
-          Test out what you've learned with some <a href="./problems.html">practice problems</a>.
-        </p>
-      </div>
-    </article>
 
     <footer class="footer">
       <div class="container">
