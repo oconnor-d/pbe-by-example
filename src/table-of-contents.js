@@ -2,6 +2,16 @@ const SCROLL_OFFSET = 15;
 const SCROLL_DURATION = 1000;
 
 $(() => {
+  // Resize fixed table to fill the width of the parent, since I can't figure out the CSS :(
+  const tocFillParentWidth = () => {
+    const parentWidth = $('#table-of-contents').parent().width();
+    $('#table-of-contents').width(parentWidth);
+  }
+
+  tocFillParentWidth();
+  $(window).on('resize', tocFillParentWidth);  
+
+  // TOC section selection and scrolling logic.
   const tocSections = $('.toc-section, .toc-sub-section');
   let isScrollingToSection = false;
 
@@ -43,6 +53,6 @@ $(() => {
       if (atOrPastSection($(this).data('target'))) {
         setCurrentSection(this);
       }
-    })
+    });
   });
 });
