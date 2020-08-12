@@ -9,7 +9,9 @@ $(() => {
   }
 
   tocFillParentWidth();
+  $('#table-of-contents').removeClass('d-none');
   $(window).on('resize', tocFillParentWidth);  
+
 
   // TOC section selection and scrolling logic.
   const tocSections = $('.toc-section, .toc-sub-section');

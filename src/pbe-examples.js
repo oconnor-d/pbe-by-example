@@ -7,9 +7,10 @@ class Example {
 }
 
 class PBETask {
-  constructor(task, taskId, exampleType, solution, exampleCount, hintExamples, exampleNotes, generalNotes) {
+  constructor(task, taskId, name, exampleType, solution, exampleCount, hintExamples, exampleNotes, generalNotes) {
     this.task = task;
     this.taskId = taskId;
+    this.name = name;
     this.exampleType = exampleType;
     this.solution = solution;
     this.exampleCount = exampleCount;
@@ -103,14 +104,14 @@ class PBETask {
 
   render(taskNumber) {
     return `
-     <div class="section example pb-2">
+     <div class="section example" id="${this.taskId}">
         <h3>${taskNumber}. ${this.task}</h3>
-        <div class="container">
+        <div class="container mx-0">
           <div class="row">
-            <div class="col">
+            <div class="col-sm">
               ${this.renderExampleInputForm()}
             </div>
-            <div class="col">
+            <div class="col-sm">
               <div id="${this.taskId}-validation"></div>
               <div id="${this.taskId}-hints"></div>
             </div>
@@ -124,6 +125,7 @@ class PBETask {
 const task1 = new PBETask(
   'Multiply each input number by itself',
   'multiply',
+  'Multiplication',
     Number,
   n => n * n,
   4,
@@ -157,7 +159,7 @@ const task1 = new PBETask(
     }
 
     if (!examples.some(example => example.input % 1 !== 0)) {
-      notes.push('It would be usefult to include some decimal examples');
+      notes.push('It would be useful to include some decimal examples');
     }
 
     return notes;
@@ -167,6 +169,7 @@ const task1 = new PBETask(
 const task2 = new PBETask(
     'Append the letters <i>abc</i> to the end of each input word',
     'append-abc',
+    'Appending',
     i => i,
     s => s === " " ? s : s.split(" ").map(word => word + "abc").join(" "),
     4,
@@ -183,19 +186,31 @@ const task2 = new PBETask(
     examples => []
 );
 
-const example3 = new PBETask(
+const task3 = new PBETask(
   'Capitalize the first word of each input sentence, if its not already capitalized',
-  5,
-  []
+  'capitalize',
+  'Capitalization',
+  i => i,
+  s => s.length > 0 ? s[0].toUppercase() + s.substring(1) : s,
+  4,
+  [],
+  example => {},
+  examples => []
 );
 
-const example4 = new PBETask(
+const task4 = new PBETask(
   'Extract the domain from each input email address',
-  5,
-  []
+  'domain',
+  'Domain Extraction',
+  s => s,
+  s => s.includes("@") ? s.split("@")[1] : "",
+  4,
+  [],
+  example => {},
+  examples => []
 );
 
-const tasks = [task1, task2];
+const tasks = [task1, task2, task3, task4];
 
 $(() => {
   const exampleSection = $('#examples');
@@ -227,5 +242,13 @@ $(() => {
 
     $(`#${task.taskId}-submit`).click(() => validateTask(task));
     $(`#${task.taskId}-hints`).click(() => taskHints(task));
+  });
+
+  // Fill Table of Contents
+  const toc = $('#table-of-contents > .example-block');
+  tasks.forEach(task => {
+    toc.append(`              
+      <div class="toc-sub-section" data-target="#${task.taskId}">${task.name}</div>
+    `);
   });
 });

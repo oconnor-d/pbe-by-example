@@ -27,28 +27,36 @@
         </div>
       </div>
     </nav>
-    <main class="container">
-      <div class="section">
-        <h1>Practice Problems</h1>
-        <p>
-          Below are some practice problems you
-          can use to test out your example-creating techniques. You can input your examples for each task and get
-          feedback about the strengths and weaknesses of them. If you need some guidance, you can click 'show hint'
-          to reveal a hint for creating a good example for the task, and 'show example' to reveal an example for that
-          hint.
-        </p>
-
-<!--        <ol>-->
-<!--          <li>Increment each input number by <i>1</i>.</li>-->
-<!--          <li>Append the letters <i>abc</i> to the end of each input word.</li>-->
-<!--          <li>Capitalize the first word of each input sentence, if its not already capitalized.</li>-->
-<!--          <li>Extract the domain from each input email address.</li>-->
-<!--        </ol>-->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2 d-flex justify-content-center">
+          <div id="table-of-contents">
+            <div class="example-block">
+              <h4 class="border-bottom pb-1">Table of Contents</h4>
+              <div class="toc-section at-section" data-target="#introduction">
+                <a>Practice Problems</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <main class="col">
+          <div class="section" id="introduction">
+            <h1>Practice Problems</h1>
+            <p>
+              Below are some practice problems you
+              can use to test out your example-creating techniques. You can input your examples for each task and get
+              feedback about the strengths and weaknesses of them. If you need some guidance, you can click 'show hint'
+              to reveal a hint for creating a good example for the task, and 'show example' to reveal an example for that
+              hint.
+            </p>
+          </div>
+          <div id="examples" class="section">
+    
+          </div>
+        </main>
+        <div class="col-sm-2"></div>
       </div>
-      <div id="examples" class="section">
-
-      </div>
-    </main>
+    </div>
     <footer class="footer">
       <div class="container">
         Any questions? Contact me at <i>oconnor.d@northeastern.edu</i> or raise an issue on 
@@ -57,9 +65,10 @@
     </footer>
 
     <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script src="./src/pbe-examples.js"></script>
+    <script src="./src/table-of-contents.js"></script>
   </body>
 </html>
