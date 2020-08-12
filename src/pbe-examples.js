@@ -243,7 +243,7 @@ const task4 = new PBETask(
   'domain',
   'Domain Extraction',
   s => s,
-  s => s.includes("@") ? s.split("@")[1] : "",
+  s => s.includes("@") ? s.split("@")[1] : " ",
   4,
   [
     new Example("test@google.com", "google.com"),
