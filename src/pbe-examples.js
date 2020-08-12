@@ -7,14 +7,14 @@ class Example {
 }
 
 class PBETask {
-  constructor(task, taskId, name, exampleType, solution, exampleCount, hintExamples, exampleNotes, generalNotes) {
+  constructor(task, taskId, name, exampleType, solution, exampleCount, referenceExamples, exampleNotes, generalNotes) {
     this.task = task;
     this.taskId = taskId;
     this.name = name;
     this.exampleType = exampleType;
     this.solution = solution;
     this.exampleCount = exampleCount;
-    this.hintExamples = hintExamples;
+    this.referenceExamples = referenceExamples;
     this.inputExamples = [];
     this.exampleNotes = exampleNotes;
     this.generalNotes = generalNotes;
@@ -49,18 +49,10 @@ class PBETask {
   }
 
   renderExampleValidation() {
-    const renderExample= (example, exampleNumber) => {
-      if (example.input === null && example.output === null) {
-        return '';
-      }
-
-      if (example.input === null) {
-        return '<span class="error">Missing example input</span>';
-      }
-
-      if (example.output === null) {
-        return '<span class="error">Missing example output</span>';
-      }
+    const renderExample = (example, exampleNumber) => {
+      if (example.input === null && example.output === null)  return '';
+      if (example.input === null) return '<span class="error">Missing example input</span>';
+      if (example.output === null) return '<span class="error">Missing example output</span>';
 
       const outputStatus = this.validateExample(example) ? 'success' : 'error';
       let exampleHtml = `${exampleNumber}. <span class="info">${example.input} -> </span><span class="${outputStatus}"> ${example.output}</span>`;
@@ -98,8 +90,15 @@ class PBETask {
     return exampleValidation;
   }
 
-  renderHints() {
-
+  renderReferences() {
+    const appendReference = (examples, example) => examples + `<div class="info">${example.input} -> ${example.output}</div>`;
+    return `
+      <div class="example-block">
+        <div class="examples">Reference Examples</div>
+          ${this.referenceExamples.reduce(appendReference, "")}
+        </div>
+      </div>
+    `;
   }
 
   render(taskNumber) {
@@ -113,7 +112,7 @@ class PBETask {
             </div>
             <div class="col-sm">
               <div id="${this.taskId}-validation"></div>
-              <div id="${this.taskId}-hints"></div>
+              <div id="${this.taskId}-references" class="mt-1"></div>
             </div>
           </div>
         </div>
@@ -134,17 +133,15 @@ const task1 = new PBETask(
       new Example(0, 0),
       new Example(1, 1),
       new Example(-14, 196),
-      new Example(100, 10000)
+      new Example(1.5, 2.25)
   ],
   example => {
     if (example.input === 0) {
       return '0 often causes problems if not included as an input example';
     }
-
     if (example.input < 0) {
       return 'Negative numbers are commonly encountered numbers that are important to include';
     }
-
     if (example.input % 1 !== 0) {
       return 'Decimals are commonly encountered numbers that are important to include';
     }
@@ -157,7 +154,6 @@ const task1 = new PBETask(
     if (!examples.some(example => example.input === 0)) {
       notes.push('0 is a common edge case for numeric tasks, and is a useful example to include');
     }
-
     if (!examples.some(example => example.input % 1 !== 0)) {
       notes.push('It would be useful to include some decimal examples');
     }
@@ -173,17 +169,32 @@ const task2 = new PBETask(
     i => i,
     s => s === " " ? s : s.split(" ").map(word => word + "abc").join(" "),
     4,
-    [],
+    [
+      new Example("test", "testabc"),
+      new Example(" ", " "),
+      new Example("a", "aabc"),
+      new Example("This is a test", "Thisabc isabc aabc testabc")
+    ],
     example => {
       if (example.input === " ") {
         return 'An empty input " " is a good edge case to tackle directly in your example!'
       }
-
       if (example.input.split(" ").filter(word => word !== "").length > 1) {
         return 'Having multiple words in an example is important, since appending "abc" to the end of <i>each</i> word is part of the task'
       }
     },
-    examples => []
+    examples => {
+      const notes = [];
+
+      if (!examples.some(example => example.input === " ")) {
+        notes.push("It would be useful to include an empty string as an input, as that's a common value for missing data");
+      }
+      if (!examples.some(example => example.input.split(" ").filter(word => word !== "").length > 1)) {
+        notes.push("Since the task is to append 'abc' to <i>each</i> word, you should have an input with multiple words");
+      }
+
+      return notes;
+    }
 );
 
 const task3 = new PBETask(
@@ -193,9 +204,38 @@ const task3 = new PBETask(
   i => i,
   s => s.length > 0 ? s[0].toUppercase() + s.substring(1) : s,
   4,
-  [],
-  example => {},
-  examples => []
+  [
+    new Example("test", "Test"),
+    new Example(" ", " "),
+    new Example("This is a test sentence", "This is a test sentence"),
+    new Example("this is a test sentence", "This is a test sentence")
+  ],
+  example => {
+    if (example.input === " ") {
+      return 'An empty input " " is a good edge case to tackle directly in your example!'
+    }
+    if (example.input.split(" ").filter(word => word !== "").length > 1) {
+      return 'Having multiple words in an example is important, to ensure only the first word is capitalized'
+    }
+    if (example.input.length > 0 && example.input[0] === example.input[0].toUppercase()) {
+      return 'Having an already uppercased starting word rules out the erroneous behavior of toggling the case'
+    }
+  },
+  examples => {
+    const notes = [];
+
+    if (!examples.some(example => example.input === " ")) {
+      notes.push("It would be useful to include an empty string as an input, as that's a common value for missing data");
+    }
+    if (!examples.some(example => example.input.split(" ").filter(word => word !== "").length > 1)) {
+      notes.push("Since the task is capitalize the first word only, you should have an input with multiple words to ensure correct behavior");
+    }
+    if (!examples.some(example => example.input.length > 0 && examples.input[0] === examples.input[0].toUppercase())) {
+      notes.push("It might be a good idea to include an already uppercased first word as an example");
+    }
+
+    return notes;
+  }
 );
 
 const task4 = new PBETask(
@@ -205,7 +245,12 @@ const task4 = new PBETask(
   s => s,
   s => s.includes("@") ? s.split("@")[1] : "",
   4,
-  [],
+  [
+    new Example("test@google.com", "google.com"),
+    new Example("test", ""),
+    new Example("abc@def.ghi", "def.ghi"),
+    new Example(" ", "")
+  ],
   example => {},
   examples => []
 );
@@ -232,7 +277,8 @@ $(() => {
   }
 
   const taskHints = task => {
-    console.log('taskHints');
+    $(`#${task.taskId}-references`).empty();
+    $(`#${task.taskId}-references`).append(task.renderReferences());
   };
 
   tasks.forEach((task, idx) => {
