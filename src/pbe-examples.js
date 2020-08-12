@@ -43,7 +43,7 @@ class PBETask {
       `;
     }
     exampleInputs += `<button id="${this.taskId}-submit" class="btn btn-primary mb-2 mr-2">Test Examples</button>`
-    exampleInputs += `<button id="${this.taskId}-hints" class="btn btn-secondary mb-2">Show Hint Examples</button>`
+    exampleInputs += `<button id="${this.taskId}-hints" class="btn btn-secondary mb-2">Show Reference Examples</button>`
 
     return exampleInputs;
   }
@@ -54,15 +54,15 @@ class PBETask {
       if (example.input === null) return '<span class="error">Missing example input</span>';
       if (example.output === null) return '<span class="error">Missing example output</span>';
 
-      const outputStatus = this.validateExample(example) ? 'success' : 'error';
-      let exampleHtml = `${exampleNumber}. <span class="info">${example.input} -> </span><span class="${outputStatus}"> ${example.output}</span>`;
+      const outputStatus = this.validateExample(example) ? 'normal' : 'error';
+      let exampleHtml = `${exampleNumber}. <span class="normal">${example.input} -> </span><span class="${outputStatus}"> ${example.output}</span>`;
       if (this.validateExample(example)) {
         const exampleNote = this.exampleNotes(example);
         if (exampleNote) {
           exampleHtml += `<span class="info">, <span class="success">+ </span>${exampleNote}</span>`
         }
       } else {
-        exampleHtml += `<span class="info">, expected <span class="success">${this.solution(example.input)}</span> as the output</span>`
+        exampleHtml += `<span class="info">, <span class="error">-</span> expected <span class="success">${this.solution(example.input)}</span> as the output</span>`
       }
       return exampleHtml;
     };
@@ -202,7 +202,7 @@ const task3 = new PBETask(
   'capitalize',
   'Capitalization',
   i => i,
-  s => s.length > 0 ? s[0].toUppercase() + s.substring(1) : s,
+  s => s.length > 0 ? s[0].toUpperCase() + s.substring(1) : s,
   4,
   [
     new Example("test", "Test"),
@@ -217,7 +217,7 @@ const task3 = new PBETask(
     if (example.input.split(" ").filter(word => word !== "").length > 1) {
       return 'Having multiple words in an example is important, to ensure only the first word is capitalized'
     }
-    if (example.input.length > 0 && example.input[0] === example.input[0].toUppercase()) {
+    if (example.input.length > 0 && example.input[0] === example.input[0].toUpperCase()) {
       return 'Having an already uppercased starting word rules out the erroneous behavior of toggling the case'
     }
   },
@@ -230,7 +230,7 @@ const task3 = new PBETask(
     if (!examples.some(example => example.input.split(" ").filter(word => word !== "").length > 1)) {
       notes.push("Since the task is capitalize the first word only, you should have an input with multiple words to ensure correct behavior");
     }
-    if (!examples.some(example => example.input.length > 0 && examples.input[0] === examples.input[0].toUppercase())) {
+    if (!examples.some(example => example.input.length > 0 && example.input[0] === example.input[0].toUpperCase())) {
       notes.push("It might be a good idea to include an already uppercased first word as an example");
     }
 
@@ -251,8 +251,25 @@ const task4 = new PBETask(
     new Example("abc@def.ghi", "def.ghi"),
     new Example(" ", "")
   ],
-  example => {},
-  examples => []
+  example => {
+    if (example.input === " ") {
+      return 'An empty input " " is a good edge case to tackle directly in your example!'
+    }
+    if (!example.input.includes("@")) {
+      return "Having an input without a domain is a good example to inform PBE how to handle with unexpected input"
+    }
+  },
+  examples => {
+    const notes = [];
+    if (!examples.some(example => example.input === " ")) {
+      notes.push("It would be useful to include an empty string as an input, as that's a common value for missing data");
+    }
+    if (!examples.some(example => !example.input.includes("@"))) {
+      notes.push("Including an input without a domain would be good to show PBE how to handle unexpected inputs");
+    }
+
+    return notes;
+  }
 );
 
 const tasks = [task1, task2, task3, task4];
