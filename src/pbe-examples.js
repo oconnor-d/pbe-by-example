@@ -42,7 +42,7 @@ class PBETask {
         </div>
       `;
     }
-    exampleInputs += `<button id="${this.taskId}-submit" class="btn btn-primary mb-2 mr-2">Test Examples</button>`
+    exampleInputs += `<button id="${this.taskId}-submit" class="btn btn-primary mb-2 mr-2">Validate Examples</button>`
     exampleInputs += `<button id="${this.taskId}-hints" class="btn btn-secondary mb-2">Show Reference Examples</button>`
 
     return exampleInputs;
@@ -59,10 +59,10 @@ class PBETask {
       if (this.validateExample(example)) {
         const exampleNote = this.exampleNotes(example);
         if (exampleNote) {
-          exampleHtml += `<span class="info">, <span class="success">+ </span>${exampleNote}</span>`
+          exampleHtml += `<span class="info">, <span class="success font-weight-bold">+ </span>${exampleNote}</span>`
         }
       } else {
-        exampleHtml += `<span class="info">, <span class="error">-</span> expected <span class="success">${this.solution(example.input)}</span> as the output</span>`
+        exampleHtml += `<span class="info">, <span class="error font-weight-bold">-</span> expected <span class="success">${this.solution(example.input)}</span> as the output</span>`
       }
       return exampleHtml;
     };
@@ -80,7 +80,7 @@ class PBETask {
     } else if (this.generalNotes(this.inputExamples).length > 0) {
       exampleValidation += '<br/>';
       this.generalNotes(this.inputExamples).forEach(note => {
-        exampleValidation += `<div class="info"><span class="error">- </span>${note}</div>`
+        exampleValidation += `<div class="info"><span class="error font-weight-bold">- </span>${note}</div>`
       });
     } else {
       exampleValidation += '<br/> <div class="success">Good examples!</div>'
@@ -137,7 +137,7 @@ const task1 = new PBETask(
   ],
   example => {
     if (example.input === 0) {
-      return '0 often causes problems if not included as an input example';
+      return '0 is often a good numeric example input, as it tends to be a unique edge case for many numeric tasks';
     }
     if (example.input < 0) {
       return 'Negative numbers are commonly encountered numbers that are important to include';
@@ -230,7 +230,7 @@ const task3 = new PBETask(
     if (!examples.some(example => example.input.split(" ").filter(word => word !== "").length > 1)) {
       notes.push("Since the task is capitalize the first word only, you should have an input with multiple words to ensure correct behavior");
     }
-    if (!examples.some(example => example.input.length > 0 && example.input[0] === example.input[0].toUpperCase())) {
+    if (!examples.some(example => example.input.length > 0 && example.input !== " " && example.input[0] === example.input[0].toUpperCase())) {
       notes.push("It might be a good idea to include an already uppercased first word as an example");
     }
 
