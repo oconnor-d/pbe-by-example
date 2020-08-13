@@ -1,19 +1,40 @@
 const SCROLL_OFFSET = 15;
 const SCROLL_DURATION = 1000;
 
-$(() => {
-  // Resize fixed table to fill the width of the parent, since I can't figure out the CSS :(
-  const tocFillParentWidth = () => {
-    const parentWidth = $('#table-of-contents').parent().width();
-    $('#table-of-contents').width(parentWidth);
+function alwaysFillParentWidth(selector) {
+  const element = $(selector);
+
+  const fillParentWidth = () => {
+    const parentWidth = element.parent().width();
+    element.width(parentWidth);
   }
 
-  tocFillParentWidth();
-  $('#table-of-contents').removeClass('d-none');
-  $(window).on('resize', tocFillParentWidth);  
+  fillParentWidth();
+  $(window).on('resize', fillParentWidth());  
+}
 
+function fillTableOfContents(tocSelector) {
+  const tocTargets = $('.toc-target');
+  const tocContainer = $(tocSelector);
 
-  // TOC section selection and scrolling logic.
+  if (!tocTargets.length || !tocContainer.length) return;
+
+  let tocHtml = `
+    <div class="example-block">
+      <h4 class="border-bottom pb-1">Table of Contents</h4>
+  `;
+  tocTargets.each(function(idx) {
+    const isSubSection = $(this).parents('.toc-target').length;
+    tocHtml += `<div class='${isSubSection ? 'toc-sub-section' : 'toc-section'} ${idx === 0 ? 'at-section' : ''}' data-target='#${$(this).attr('id')}'>
+      ${$(this).data('name')}
+    </div>`;
+  });
+  tocHtml += `</div>`;
+
+  tocContainer.append(tocHtml);
+}
+
+function setupTableOfContentsScrolling() {
   const tocSections = $('.toc-section, .toc-sub-section');
   let isScrollingToSection = false;
 
@@ -57,4 +78,10 @@ $(() => {
       }
     });
   });
+}
+
+$(() => {
+  alwaysFillParentWidth('#table-of-contents');
+  fillTableOfContents('#table-of-contents');
+  setupTableOfContentsScrolling();
 });

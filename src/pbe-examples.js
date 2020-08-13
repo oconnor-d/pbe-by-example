@@ -103,7 +103,7 @@ class PBETask {
 
   render(taskNumber) {
     return `
-     <div class="section example" id="${this.taskId}">
+     <div class="section toc-target" data-name="${this.name}" id="${this.taskId}">
         <h3>${taskNumber}. ${this.task}</h3>
         <div class="container mx-0">
           <div class="row">
@@ -305,13 +305,5 @@ $(() => {
 
     $(`#${task.taskId}-submit`).click(() => validateTask(task));
     $(`#${task.taskId}-hints`).click(() => taskHints(task));
-  });
-
-  // Fill Table of Contents
-  const toc = $('#table-of-contents > .example-block');
-  tasks.forEach(task => {
-    toc.append(`              
-      <div class="toc-sub-section" data-target="#${task.taskId}">${task.name}</div>
-    `);
   });
 });
