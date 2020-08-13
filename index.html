@@ -48,18 +48,22 @@
         </div>
         <article class="col">
           <div class="section" id="introduction">
-            <h1 class="mb-0">Programming By Example, By Example</h1>
-            <h6 class="text-muted">Danny O'Connor | August, 2020</h6>
             <div class="row">
               <div class="col-sm-8">
+                <h1 class="mb-0">Programming By Example, By Example</h1>
+                <h6 class="text-muted">Danny O'Connor | August, 2020</h6>
                 <p class="indented">
                   Programming-by-example, commonly referred to as PBE, is featured in several popular pieces of software.
                   As the name suggests, programming-by-example allows users to generate programs by providing nothing more than a few example inputs and outputs.
+                  Any system which uses examples provided by users to define reusable behavior is PBE, even if it is not
+                  classified as such specifically.
                   PBE can be used to automate repetitive tasks, such as
                   <a target="_blank" href="https://support.microsoft.com/en-us/office/using-flash-fill-in-excel-3f9bcf1e-db93-4890-94a0-1578341f73f7" rel="noopener">
                     populating a new column in Microsoft Excel based off an existing column.
                   </a>
-                  Learning how to use your PBE tool effectively can increase your productivity, and save time on repitious tasks, so its a worthwhile endeavor
+                  This framework of example-based programming allows users with little-to-no technical knowledge to create reusable solutions
+                  to problems they may have previously required outside assistance to complete.
+                  Learning how to use your PBE tool effectively can increase your productivity, and save time on repetitious tasks, so its a worthwhile endeavor
                   to understand how they work. Instead of writing code in a programming language, you program your desired program via <b>examples</b>! PBE works
                   by generating programs that satisfy the provided examples <i>at least</i>, and hopefully solve all desired use cases.
                   In order to use PBE effectively, you must be able to come up with a full set of descriptive, unambiguous examples which
@@ -67,10 +71,27 @@
                   for in terms of the given examples - no matter what PBE system you may be using, this site will give you the necessary tools to become an effective PBE user!
                 </p>
               </div>
-              <div class="col">
-                <h6>PBE in Microsoft Excel</h6>
-                <img class="my-1 border border-dark" src="./img/flash_fill.gif" alt="Excel Flash-Fill in action">
-                <div class="info">Excel Flash Fill generating full names from the three name columns, using <b>Mynda K Treacy</b> as an example output</div>
+              <div class="col-sm-4">
+                <div class="example-block mt-3">
+                  <div class="examples">Example PBE System</div>
+                  <div class="info">
+                    A simple example of a hypothetical PBE system could be a calculator which uses your examples to decide what basic
+                    arithmetic operator to use on its inputs.
+                  </div>
+                  <br/>
+                  <div class="info">
+                    Given examples
+                    <span class="normal">0, 0 -> 0</span>,
+                    <span class="normal">0, 1 -> 1</span>,
+                    <span class="normal">-5, 3 -> -2</span>,
+                    <span class="normal">14, 6 -> 20</span>,
+                    the PBE calculator can infer that the desired operation you wish to perform is <b>addition</b>.
+                  </div>
+                </div>
+                <div class="mt-4">
+                  <img class="my-1 border border-dark" src="./img/flash_fill.gif" alt="Excel Flash-Fill in action">
+                  <div class="info">Excel Flash Fill generating full names from the three name columns, using <b>Mynda K Treacy</b> as an example output</div>
+                </div>
               </div>
             </div>
           </div>
@@ -78,9 +99,12 @@
           <div class="section" id="effective-examples">
             <h2>Coming Up with Effective Examples</h2>
             <p class="indented">
-              PBE can only be as effective as the provided examples allow it to be. Examples are extremely friendly towards the user, since most are able
-              to come up with examples for their tasks. More people are able to come up with examples for their problem than are able to program
-              a solution by hand, which is great for the everyday user! However, examples are inherently ambiguous, and often do not encompass the entire problem.
+              PBE can only be as effective as the provided examples allow it to be. Examples are extremely friendly towards the user, since coming up with examples
+              of how something should behave is often easier then implementing that behavior. More people are able to come up with examples for their problem than are
+              able to program a solution by hand, which is great for the everyday user! However, examples are inherently ambiguous, and often do not encompass the scope
+              of the entire problem.
+            </p>
+            <p>
               Since generating effective examples is so important to PBE, and coming up with well-suited PBE examples isn't a widely held skill, it's important
               to put some thought into your examples. Here's a short guide you can refer to when coming up with examples of your own.
             </p>
@@ -105,7 +129,7 @@
                     </p>
                     <p>
                       Besides being helpful for the PBE system, decomposing your problem can be helpful for your understanding of the problem, and therefore
-                      your ability to come up with worthwile examples. It can be difficult to come up with examples for sufficiently complex tasks,
+                      your ability to come up with worthwhile examples. It can be difficult to come up with examples for complicated tasks,
                       but coming up with examples for each individual step is usually much easier!
                     </p>
                   </div>
@@ -140,7 +164,7 @@
                     </p>
                     <p>
                       If all your examples seem exceedingly similar to each other, that is often a sign that they are too ambiguous, and might miss some
-                      of the finer details of the task at hand.It is also useful to think of any edge-cases you might want to encounter, and include those as examples.
+                      of the finer details of the task at hand. It is also useful to think of any edge-cases you might want to encounter, and include those as examples.
                     </p>
                   </div>
                   <div class="col-sm-4">
@@ -229,6 +253,7 @@
                     </p>
                     <p>
                       If your PBE system isn't working as expected, double checking that your examples don't contain any mistakes is always a good first step.
+                      If you still believe your examples are correct but PBE isn't working, you may need to add more examples.
                     </p>
                   </div>
                   <div class="col-sm-4">
@@ -283,7 +308,7 @@
                 I'm a fifth year Computer Science student at Northeastern University!
               </p>
               <p>
-                I work at a company whose product has PBE capabilities, which inspired me to learn more about
+                I worked at a company whose product has PBE capabilities, which inspired me to learn more about
                 the field and led me to the research concerning the usability issues PBE faces
               </p>
             </div>
